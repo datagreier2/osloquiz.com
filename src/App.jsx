@@ -326,6 +326,7 @@ export default function App() {
   const [sanityEvents, setSanityEvents] = useState([]);
   const [weekInitialized, setWeekInitialized] = useState(false);
   const [userNavigated, setUserNavigated] = useState(false);
+  const [sanityError, setSanityError] = useState("");
   const t = content[locale] || content.no;
   const testimonialsForLocale = useMemo(() => {
     const quotes = t.testimonials.quotes || [];
@@ -367,11 +368,13 @@ export default function App() {
       .then((data) => {
         if (isMounted) {
           setSanityEvents(Array.isArray(data) ? data : []);
+          setSanityError("");
         }
       })
-      .catch(() => {
+      .catch((error) => {
         if (isMounted) {
           setSanityEvents([]);
+          setSanityError(error?.message || "Unknown error");
         }
       });
     return () => {
@@ -509,6 +512,14 @@ export default function App() {
 
               {!calendarEvents.length ? (
                 <div className="calendar-empty">No events published yet.</div>
+              ) : null}
+              {sanityError ? (
+                <div className="calendar-debug">
+                  CORS debug: origin{" "}
+                  {typeof window !== "undefined" ? window.location.origin : "n/a"} ·
+                  project {sanityClient.config().projectId} · dataset{" "}
+                  {sanityClient.config().dataset} · error {sanityError}
+                </div>
               ) : null}
 
               <div className="calendar-nav">
