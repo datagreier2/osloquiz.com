@@ -361,7 +361,7 @@ export default function App() {
           date,
           time,
           detail,
-          venue
+          venue->{title, url}
         }`
       )
       .then((data) => {
@@ -410,7 +410,9 @@ export default function App() {
           day: dayIndex,
           title: event.title || "Untitled",
           time: event.time || "--:--",
-          detail: event.detail || event.venue || "",
+          detail: event.detail || "",
+          venueName: event.venue?.title || "",
+          venueUrl: event.venue?.url || "",
         };
       })
       .filter(Boolean);
@@ -568,7 +570,19 @@ export default function App() {
                               </div>
                               <div className="event-time">{event.time}</div>
                               <h3 className="event-title">{event.title}</h3>
-                              <p className="event-detail">{event.detail}</p>
+                              {event.detail ? (
+                                <p className="event-detail">{event.detail}</p>
+                              ) : null}
+                              {event.venueName ? (
+                                <a
+                                  className="event-venue"
+                                  href={event.venueUrl || "#"}
+                                  target={event.venueUrl ? "_blank" : undefined}
+                                  rel={event.venueUrl ? "noreferrer" : undefined}
+                                >
+                                  {event.venueName}
+                                </a>
+                              ) : null}
                             </article>
                           );
                         })}

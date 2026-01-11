@@ -241,6 +241,23 @@ body {
   font-size: 11px;
 }
 
+.event-venue {
+  font-size: 11px;
+  font-family: "Space Mono", monospace;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 2px solid var(--ink);
+  width: fit-content;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.event-venue:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
 .aside {
   display: flex;
   flex-direction: column;
@@ -561,5 +578,35 @@ body {
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (min-width: 901px) {
+  .mast {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+  }
+
+  .stamp {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+  }
+
+  .mast-copy {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .language-picker {
+    grid-column: 3;
+    grid-row: 1;
+    justify-items: start;
+  }
+
+  .chip {
+    grid-column: 3;
+    grid-row: 2;
+    align-self: start;
   }
 }

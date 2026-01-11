@@ -36,7 +36,8 @@ export const event = defineType({
     defineField({
       name: 'venue',
       title: 'Venue',
-      type: 'string',
+      type: 'reference',
+      to: [{type: 'venue'}],
     }),
   ],
   preview: {
@@ -44,7 +45,7 @@ export const event = defineType({
       title: 'title',
       date: 'date',
       time: 'time',
-      venue: 'venue',
+      venue: 'venue.title',
     },
     prepare({title, date, time, venue}) {
       const parts = [date, time].filter(Boolean).join(' · ')
