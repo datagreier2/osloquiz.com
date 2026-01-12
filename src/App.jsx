@@ -634,15 +634,25 @@ export default function App() {
                                       return null;
                                     }
                                     return action?.url ? (
-                                      <a
-                                        key={`${event.id}-action-${actionIndex}`}
-                                        className="event-cta"
-                                        href={action.url}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                      >
-                                        {label}
-                                      </a>
+                                      (() => {
+                                        const rawUrl = String(action.url).trim();
+                                        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                                        const href = emailPattern.test(rawUrl)
+                                          ? `mailto:${rawUrl}`
+                                          : rawUrl;
+                                        const isHttp = href.startsWith("http://") || href.startsWith("https://");
+                                        return (
+                                          <a
+                                            key={`${event.id}-action-${actionIndex}`}
+                                            className="event-cta"
+                                            href={href}
+                                            target={isHttp ? "_blank" : undefined}
+                                            rel={isHttp ? "noreferrer" : undefined}
+                                          >
+                                            {label}
+                                          </a>
+                                        );
+                                      })()
                                     ) : (
                                       <span
                                         key={`${event.id}-action-${actionIndex}`}

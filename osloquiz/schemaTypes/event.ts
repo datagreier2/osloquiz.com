@@ -65,9 +65,24 @@ export const event = defineType({
               name: 'url',
               title: 'URL',
               type: 'url',
+              description: 'Use https://, http://, or just an email address.',
               validation: (rule) =>
-                rule.uri({
-                  scheme: ['http', 'https'],
+                rule.custom((value) => {
+                  if (!value) {
+                    return true
+                  }
+                  const trimmed = String(value).trim()
+                  if (trimmed.startsWith('mailto:')) {
+                    return true
+                  }
+                  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                  if (emailPattern.test(trimmed)) {
+                    return true
+                  }
+                  if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
+                    return true
+                  }
+                  return 'Enter a valid URL or email address.'
                 }),
             },
           ],
