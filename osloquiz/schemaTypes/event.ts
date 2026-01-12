@@ -60,7 +60,7 @@ export const event = defineType({
               options: {
                 list: [
                   {title: 'Book table', value: 'Book table'},
-                  {title: 'Get tickets', value: 'Get tickets'},
+                  {title: 'Buy tickets', value: 'Buy tickets'},
                   {title: 'Drop-in', value: 'Drop-in'},
                 ],
               },

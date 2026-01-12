@@ -30,6 +30,26 @@ export const venue = defineType({
           scheme: ['http', 'https'],
         }),
     }),
+    defineField({
+      name: 'bookTableUrl',
+      title: 'Book Table URL',
+      type: 'url',
+      description: 'Default link for “Book table” actions.',
+      validation: (rule) =>
+        rule.uri({
+          scheme: ['http', 'https', 'mailto'],
+        }),
+    }),
+    defineField({
+      name: 'ticketsUrl',
+      title: 'Buy Tickets URL',
+      type: 'url',
+      description: 'Default link for “Buy tickets” actions.',
+      validation: (rule) =>
+        rule.uri({
+          scheme: ['http', 'https', 'mailto'],
+        }),
+    }),
   ],
   preview: {
     select: {

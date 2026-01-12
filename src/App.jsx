@@ -369,7 +369,7 @@ export default function App() {
           date,
           time,
           detail,
-          venue->{title, url, mapUrl},
+          venue->{title, url, mapUrl, bookTableUrl, ticketsUrl},
           actions[]{label, url}
         }`
       )
@@ -426,6 +426,8 @@ export default function App() {
           venueName: event.venue?.title || "",
           venueUrl: event.venue?.url || "",
           venueMapUrl: event.venue?.mapUrl || "",
+          venueBookUrl: event.venue?.bookTableUrl || "",
+          venueTicketsUrl: event.venue?.ticketsUrl || "",
           actions: Array.isArray(event.actions) ? event.actions : [],
         };
       })
@@ -637,9 +639,16 @@ export default function App() {
                                     if (!label) {
                                       return null;
                                     }
-                                    return action?.url ? (
+                                    const inheritedUrl =
+                                      label === "Book table"
+                                        ? event.venueBookUrl
+                                        : label === "Buy tickets"
+                                        ? event.venueTicketsUrl
+                                        : "";
+                                    const url = action?.url || inheritedUrl || "";
+                                    return url ? (
                                       (() => {
-                                        const rawUrl = String(action.url).trim();
+                                        const rawUrl = String(url).trim();
                                         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                                         const href = emailPattern.test(rawUrl)
                                           ? `mailto:${rawUrl}`
