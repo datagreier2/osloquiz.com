@@ -258,6 +258,46 @@ body {
   border-bottom-color: var(--accent);
 }
 
+.event-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.event-map {
+  font-size: 11px;
+  font-family: "Space Mono", monospace;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 2px solid var(--ink);
+}
+
+.event-map:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.event-cta {
+  font-size: 11px;
+  font-family: "Space Mono", monospace;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: var(--accent);
+  padding: 4px 6px;
+  text-decoration: none;
+  width: fit-content;
+  display: inline-block;
+  margin-top: 6px;
+  border: 2px solid var(--ink);
+}
+
+.event-cta:hover {
+  background: #ffffff;
+  color: var(--accent);
+}
+
 .aside {
   display: flex;
   flex-direction: column;

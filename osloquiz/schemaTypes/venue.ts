@@ -20,6 +20,16 @@ export const venue = defineType({
           scheme: ['http', 'https'],
         }),
     }),
+    defineField({
+      name: 'mapUrl',
+      title: 'Google Maps Share URL',
+      type: 'url',
+      description: 'Paste the share link from Google Maps.',
+      validation: (rule) =>
+        rule.uri({
+          scheme: ['http', 'https'],
+        }),
+    }),
   ],
   preview: {
     select: {

@@ -361,7 +361,9 @@ export default function App() {
           date,
           time,
           detail,
-          venue->{title, url}
+          venue->{title, url, mapUrl},
+          ctaLabel,
+          ctaUrl
         }`
       )
       .then((data) => {
@@ -413,6 +415,9 @@ export default function App() {
           detail: event.detail || "",
           venueName: event.venue?.title || "",
           venueUrl: event.venue?.url || "",
+          venueMapUrl: event.venue?.mapUrl || "",
+          ctaLabel: event.ctaLabel || "",
+          ctaUrl: event.ctaUrl || "",
         };
       })
       .filter(Boolean);
@@ -574,14 +579,44 @@ export default function App() {
                                 <p className="event-detail">{event.detail}</p>
                               ) : null}
                               {event.venueName ? (
-                                <a
-                                  className="event-venue"
-                                  href={event.venueUrl || "#"}
-                                  target={event.venueUrl ? "_blank" : undefined}
-                                  rel={event.venueUrl ? "noreferrer" : undefined}
-                                >
-                                  {event.venueName}
-                                </a>
+                                <div className="event-links">
+                                  {event.venueUrl ? (
+                                    <a
+                                      className="event-venue"
+                                      href={event.venueUrl}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      {event.venueName}
+                                    </a>
+                                  ) : (
+                                    <span className="event-venue">{event.venueName}</span>
+                                  )}
+                                  {event.venueMapUrl ? (
+                                    <a
+                                      className="event-map"
+                                      href={event.venueMapUrl}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      Map
+                                    </a>
+                                  ) : null}
+                                </div>
+                              ) : null}
+                              {event.ctaLabel ? (
+                                event.ctaUrl ? (
+                                  <a
+                                    className="event-cta"
+                                    href={event.ctaUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                  >
+                                    {event.ctaLabel}
+                                  </a>
+                                ) : (
+                                  <span className="event-cta">{event.ctaLabel}</span>
+                                )
                               ) : null}
                             </article>
                           );
