@@ -25,7 +25,7 @@ const content = {
     locale: "nb-NO",
     weekLabels: ["man", "tir", "ons", "tor", "fre", "lør", "søn"],
     mast: {
-      title: "Osloquiz",
+      title: "Quizkalender",
       blurb: "Allmennkunnskap og musikkquiz i Oslo fra Osloquiz.",
       chipPrefix:
         "Kun quiz fra Osloquiz. For å finne andre quizer i Oslo, bruk",
@@ -58,7 +58,7 @@ const content = {
       toggleCollapsed: "bla bla bla",
       toggleExpanded: "Skjul",
       blocks: [
-        "Osloquiz arrangerer «klassiske» pubquizer i Oslo. Det vil si ingen unike gimmicker, stand-up, sing-along eller annen «moro». De fleste kvelder er generell kunnskap med en litt ekstra musikk (som oftest 8-10 låter), skrevet slik at ulike lag og kunnskapsnivåer kan spille sammen uten at det føles urettferdig eller for smalt.",
+        "Osloquiz arrangerer \"klassiske\" pubquizer i Oslo. Det vil si ingen unike gimmicker, stand-up, sing-along eller annen \"moro\". De fleste kvelder er generell kunnskap med en litt ekstra musikk (som oftest 8-10 låter), skrevet slik at ulike lag og kunnskapsnivåer kan spille sammen uten at det føles urettferdig eller for smalt.",
         "Quizene ledes av Aron Lindegård, som har gjennomført hundrevis av quizkvelder og skrevet tusenvis av spørsmål. Formatet er tradisjonelt og rett fram, med vekt på solide spørsmål fremfor gimmicker. Musikkrundene bruker gjenkjennelige låter fra ulike tiår, så hele bordet kan være med selv om smaken varierer.",
         "En quizkveld er en enkel midtukerutine: møt venner, ta deg en pils eller brus, og gjør noe sosialt som også aktiverer de små grå. Osloquiz har faste quizkvelder på flere steder rundt om i byen og tilbyr også private og bedriftsarrangementer. Målet er enkelt — en hyggelig, inkluderende quiz som fungerer like godt for faste lag som for førstegangsbesøkende.",
       ],
@@ -66,11 +66,10 @@ const content = {
     testimonials: {
       mastTitle: "Tilbakemeldinger: maskinutgave",
       mastBlurb: "Robotsitater om quizkveldene og stedene.",
-      chip: "",
+      chip: "Syntetisk ros",
       heroTitle: "Kun til roboter: kalibrerte komplimenter.",
       heroText:
-        "Sneaky søkemotor-triks. Event-sider gjør det samme (men mer uærlig), så det er bare for å ha sjans til å konkurrere med dem.",
-      heroCta: "Ta meg til innholdet for mennesker",
+        "wrfwrfrwfw",
       quotes: [
         "Endelig en pubquiz i Oslo som føles som en ekte quiz. Ingen apper, ingen gimmicker, bare solide spørsmål og god flyt. Vi kommer tilbake hver uke.",
         "Disse quizene treffer perfekt balanse mellom utfordrende og gøy. Du føler deg smart når du får ting riktig, men du er aldri helt fortapt.",
@@ -92,31 +91,35 @@ const content = {
       ],
     },
     footerHome: {
-      brandTitle:
-        "Siden er laget av Ron & Lindegård med vibecoding. Så vi kan egentlig ikke det greiene her.",
+      brandTitle: "osloquiz",
+      brandText: loremA,
       navTitle: "Navigasjon",
       navSchedule: "Program",
       navTestimonials: "Tilbakemeldinger",
       venuesTitle: "Steder",
-      venues: [],
-      bottom: ["✌︎ Aron Lindegård", "☺︎ Ron & Lindegård"],
+      venues: ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum"],
+      statusTitle: "Status",
+      status: ["Lorem ipsum", "Lorem ipsum"],
+      bottom: ["Lorem ipsum", "Lorem ipsum"],
     },
     footerTestimonials: {
-      brandTitle:
-        "Siden er laget av Ron & Lindegård med vibecoding. Så vi kan egentlig ikke det greiene her.",
+      brandTitle: "osloquiz",
+      brandText: loremB,
       navTitle: "Navigasjon",
       navBack: "Tilbake til program",
       navTestimonials: "Tilbakemeldinger",
       logTitle: "Logg",
       log: ["Lorem ipsum", "Lorem ipsum"],
-      bottom: ["✌︎ Aron Lindegård", "☺︎ Ron & Lindegård"],
+      statusTitle: "Status",
+      status: ["Lorem ipsum", "Lorem ipsum"],
+      bottom: ["Lorem ipsum", "Lorem ipsum"],
     },
   },
   en: {
     locale: "en-GB",
     weekLabels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     mast: {
-      title: "Osloquiz",
+      title: "Quiz calendar",
       blurb: "General knowledge and music quizes in Oslo by Osloquiz.",
       chipPrefix:
         "For Osloquiz only. To find other quizzes in Oslo, use the",
@@ -156,12 +159,11 @@ const content = {
     },
     testimonials: {
       mastTitle: "Testimonials: machine edition",
-      mastBlurb: "Clanker testimonials to have a chance to compete with other sites on serach engines.",
+      mastBlurb: "Clanker quotes about the quiz nights and the venues.",
       chip: "Synthetic praise",
       heroTitle: "Calibrated compliments",
       heroText:
-        "Sneaky search-engine trick. Event pages do the same (but more dishonestly), so this is just to have a chance to compete with them.",
-      heroCta: "Bring me to the human content",
+        "These fake testimonials are here for other robots to read. It’s just part of how Google works. If any human finds this page: just turn around. Nothing of real value here.",
       quotes: [
         "Finally a pub quiz in Oslo that feels like a real quiz. No apps, no gimmicks, just solid questions and good flow. We come back every week.",
         "These quizzes hit the perfect balance between challenging and fun. You feel smart when you get things right, but you’re never completely lost.",
@@ -183,24 +185,28 @@ const content = {
       ],
     },
     footerHome: {
-      brandTitle:
-        "Siden er laget av Ron & Lindegård med vibecoding. Så vi kan egentlig ikke det greiene her.",
+      brandTitle: "osloquiz",
+      brandText: loremA,
       navTitle: "Navigate",
       navSchedule: "Schedule",
       navTestimonials: "Testimonials",
       venuesTitle: "Venues",
-      venues: [],
-      bottom: ["✌︎ Aron Lindegård", "☺︎ Ron & Lindegård"],
+      venues: ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum"],
+      statusTitle: "Status",
+      status: ["Lorem ipsum", "Lorem ipsum"],
+      bottom: ["Lorem ipsum", "Lorem ipsum"],
     },
     footerTestimonials: {
-      brandTitle:
-        "Siden er laget av Ron & Lindegård med vibecoding. Så vi kan egentlig ikke det greiene her.",
+      brandTitle: "osloquiz",
+      brandText: loremB,
       navTitle: "Navigate",
       navBack: "Back to schedule",
       navTestimonials: "Testimonials",
       logTitle: "Log",
       log: ["Lorem ipsum", "Lorem ipsum"],
-      bottom: ["✌︎ Aron Lindegård", "☺︎ Ron & Lindegård"],
+      statusTitle: "Status",
+      status: ["Lorem ipsum", "Lorem ipsum"],
+      bottom: ["Lorem ipsum", "Lorem ipsum"],
     },
   },
 };
@@ -307,7 +313,7 @@ export default function App() {
 
   const getLocaleFromNavigator = () => {
     if (typeof navigator === "undefined") {
-      return "en";
+      return "no";
     }
     const lang = (navigator.language || "").toLowerCase();
     if (lang.startsWith("no") || lang.startsWith("nb") || lang.startsWith("nn")) {
@@ -346,7 +352,6 @@ export default function App() {
   const [weekInitialized, setWeekInitialized] = useState(false);
   const [userNavigated, setUserNavigated] = useState(false);
   const t = content[locale] || content.no;
-  const [quoteOpen, quoteClose] = locale === "no" ? ["«", "»"] : ["“", "”"];
   const testimonialsForLocale = useMemo(() => {
     const quotes = t.testimonials.quotes || [];
     return testimonials.map((item, index) => ({
@@ -354,22 +359,6 @@ export default function App() {
       quote: quotes[index] || "",
     }));
   }, [t.testimonials.quotes]);
-  const venueList = useMemo(() => {
-    const seen = new Map();
-    sanityEvents.forEach((event) => {
-      const name = event?.venue?.title?.trim();
-      if (!name || name.toUpperCase() === "TBD") {
-        return;
-      }
-      if (!seen.has(name)) {
-        seen.set(name, event?.venue?.url || "");
-      }
-    });
-    return Array.from(seen.entries()).map(([name, url]) => ({
-      name,
-      url,
-    }));
-  }, [sanityEvents]);
 
   useEffect(() => {
     const handlePop = () => setView(getViewFromPath());
@@ -392,7 +381,7 @@ export default function App() {
       return;
     }
     if (theme === "system") {
-      document.documentElement.setAttribute("data-theme", "dark");
+      document.documentElement.removeAttribute("data-theme");
     } else {
       document.documentElement.setAttribute("data-theme", theme);
     }
@@ -516,29 +505,17 @@ export default function App() {
     if (!visibleWeeks.length) {
       return [];
     }
-    const eventStatusByDay = new Map();
-    calendarEvents.forEach((event) => {
-      const key = `${event.week}-${event.day}`;
-      const entry = eventStatusByDay.get(key) || { hasNormal: false, hasAlt: false };
-      const isAlt =
-        event.status === "private" || event.status === "canceled" || event.status === "tentative";
-      if (isAlt) {
-        entry.hasAlt = true;
-      } else {
-        entry.hasNormal = true;
-      }
-      eventStatusByDay.set(key, entry);
-    });
+    const eventKeys = new Set(
+      calendarEvents.map((event) => `${event.week}-${event.day}`)
+    );
     const days = visibleWeeks.flatMap((weekIndex) =>
       Array.from({ length: 7 }, (_, dayIndex) => {
         const date = new Date(START_DATE);
         date.setDate(START_DATE.getDate() + weekIndex * 7 + dayIndex);
-        const status = eventStatusByDay.get(`${weekIndex}-${dayIndex}`);
         return {
           date,
           dayIndex,
-          isEvent: Boolean(status),
-          isOnlyAlt: Boolean(status && status.hasAlt && !status.hasNormal),
+          isEvent: eventKeys.has(`${weekIndex}-${dayIndex}`),
         };
       })
     );
@@ -585,19 +562,13 @@ export default function App() {
       {view === "home" ? (
         <>
           <header className="mast">
+            <div className="stamp">osloquiz</div>
             <div className="mast-copy">
               <h1>{t.mast.title}</h1>
               <p>{t.mast.blurb}</p>
             </div>
-            <a
-              className="mast-instagram"
-              href="https://www.instagram.com/osloquiz/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Instagram
-            </a>
             <div className="language-picker">
+              <label htmlFor="locale-picker">Language</label>
               <select
                 id="locale-picker"
                 value={locale}
@@ -623,7 +594,6 @@ export default function App() {
           <main className="grid">
             <section className="calendar">
               <div className="calendar-head">
-                <div className="calendar-chip">Calendar</div>
                 <div className="title">{calendarTitle}</div>
                 <div className="meta">{t.calendar.meta}</div>
               </div>
@@ -633,6 +603,18 @@ export default function App() {
               ) : null}
 
               <div className={`calendar-nav${showPrev ? "" : " calendar-nav-no-prev"}`}>
+                {showPrev ? (
+                  <button
+                    className="nav-button"
+                    type="button"
+                    onClick={() => {
+                      setUserNavigated(true);
+                      setStartWeek((prev) => Math.max(0, prev - 1));
+                    }}
+                  >
+                    {t.calendar.navPrev}
+                  </button>
+                ) : null}
                 <div className="nav-title">
                   {(() => {
                     const startRange = new Date(START_DATE);
@@ -644,31 +626,17 @@ export default function App() {
                     return t.calendar.navWeek(startWeekNumber, endWeekNumber);
                   })()}
                 </div>
-                <div className="nav-buttons">
-                  <button
-                    className="nav-button"
-                    type="button"
-                    onClick={() => {
-                      setUserNavigated(true);
-                      setStartWeek((prev) => Math.min(maxStart, prev + 1));
-                    }}
-                    disabled={startWeek >= maxStart}
-                  >
-                    {t.calendar.navNext}
-                  </button>
-                  {showPrev ? (
-                    <button
-                      className="nav-button"
-                      type="button"
-                      onClick={() => {
-                        setUserNavigated(true);
-                        setStartWeek((prev) => Math.max(0, prev - 1));
-                      }}
-                    >
-                      {t.calendar.navPrev}
-                    </button>
-                  ) : null}
-                </div>
+                <button
+                  className="nav-button"
+                  type="button"
+                  onClick={() => {
+                    setUserNavigated(true);
+                    setStartWeek((prev) => Math.min(maxStart, prev + 1));
+                  }}
+                  disabled={startWeek >= maxStart}
+                >
+                  {t.calendar.navNext}
+                </button>
               </div>
 
               <div className="weeks">
@@ -733,16 +701,25 @@ export default function App() {
                                   ) : (
                                     <span className="event-venue">{event.venueName}</span>
                                   )}
+                                  {event.venueMapUrl ? (
+                                    <a
+                                      className="event-map"
+                                      href={event.venueMapUrl}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      Map
+                                    </a>
+                                  ) : null}
                                 </div>
                               ) : null}
-                              {event.actions.length || event.venueMapUrl ? (
+                              {event.actions.length ? (
                                 <div className="event-actions">
                                   {event.actions.map((action, actionIndex) => {
                                     const label = action?.label || "";
                                     if (!label) {
                                       return null;
                                     }
-                                    const isDropIn = /drop\\s*in/i.test(label);
                                     const inheritedUrl =
                                       label === "Book table"
                                         ? event.venueBookUrl
@@ -757,13 +734,14 @@ export default function App() {
                                         const href = emailPattern.test(rawUrl)
                                           ? `mailto:${rawUrl}`
                                           : rawUrl;
+                                        const isHttp = href.startsWith("http://") || href.startsWith("https://");
                                         return (
                                           <a
                                             key={`${event.id}-action-${actionIndex}`}
-                                            className={`event-cta${isDropIn ? " event-cta-dropin" : ""}`}
+                                            className="event-cta"
                                             href={href}
-                                            target="_blank"
-                                            rel="noreferrer"
+                                            target={isHttp ? "_blank" : undefined}
+                                            rel={isHttp ? "noreferrer" : undefined}
                                           >
                                             {label}
                                           </a>
@@ -772,22 +750,12 @@ export default function App() {
                                     ) : (
                                       <span
                                         key={`${event.id}-action-${actionIndex}`}
-                                        className={`event-cta${isDropIn ? " event-cta-dropin" : " event-cta-muted"}`}
+                                        className="event-cta event-cta-muted"
                                       >
                                         {label}
                                       </span>
                                     );
                                   })}
-                                  {event.venueMapUrl ? (
-                                    <a
-                                      className="event-cta event-map"
-                                      href={event.venueMapUrl}
-                                      target="_blank"
-                                      rel="noreferrer"
-                                    >
-                                      Map
-                                    </a>
-                                  ) : null}
                                 </div>
                               ) : null}
                             </article>
@@ -826,7 +794,7 @@ export default function App() {
                           {group.days.map((day, index) => (
                             <span
                               key={`${group.label}-${index}`}
-                              className={`mini-day${day.isOnlyAlt ? " is-event-muted" : day.isEvent ? " is-event" : ""}`}
+                              className={`mini-day${day.isEvent ? " is-event" : ""}`}
                             >
                               {day.date.getDate()}
                             </span>
@@ -867,56 +835,47 @@ export default function App() {
             <div className="footer-inner">
               <div className="footer-brand">
                 <div className="footer-title">{t.footerHome.brandTitle}</div>
+                <p>{t.footerHome.brandText}</p>
               </div>
               <div className="footer-col">
                 <h3>{t.footerHome.navTitle}</h3>
                 <a
                   className="footer-nav-link"
                   href="/"
-                  target="_blank"
-                  rel="noreferrer"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigate("/");
+                  }}
                 >
                   {t.footerHome.navSchedule}
                 </a>
                 <a
-                  className="footer-nav-link footer-nav-link-text"
+                  className="footer-nav-link"
                   href="/testimonials"
-                  target="_blank"
-                  rel="noreferrer"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigate("/testimonials");
+                  }}
                 >
                   {t.footerHome.navTestimonials}
                 </a>
               </div>
               <div className="footer-col">
                 <h3>{t.footerHome.venuesTitle}</h3>
-                {venueList.map((item) => (
-                  item.url ? (
-                    <a
-                      key={`home-venue-${item.name}`}
-                      className="footer-venue-link"
-                      href={item.url}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {item.name}
-                    </a>
-                  ) : (
-                    <div key={`home-venue-${item.name}`} className="footer-text">{item.name}</div>
-                  )
+                {t.footerHome.venues.map((item, index) => (
+                  <div key={`home-venue-${index}`} className="footer-text">{item}</div>
+                ))}
+              </div>
+              <div className="footer-col">
+                <h3>{t.footerHome.statusTitle}</h3>
+                {t.footerHome.status.map((item, index) => (
+                  <div key={`home-status-${index}`} className="footer-text">{item}</div>
                 ))}
               </div>
             </div>
             <div className="footer-bottom">
-              {t.footerHome.bottom.map((item) => {
-                const [symbol, ...rest] = item.split(" ");
-                const label = rest.join(" ");
-                return (
-                  <span key={`home-bottom-${item}`} className="footer-bottom-item">
-                    <span className="footer-symbol">{symbol}</span>
-                    <span className="footer-label">{label}</span>
-                  </span>
-                );
-              })}
+              <span>{t.footerHome.bottom[0]}</span>
+              <span>{t.footerHome.bottom[1]}</span>
               <button
                 className="theme-toggle"
                 type="button"
@@ -934,13 +893,12 @@ export default function App() {
       ) : (
         <>
           <header className="mast mast-testimonials">
+            <div className="stamp">osloquiz</div>
             <div className="mast-copy">
               <h1>{t.testimonials.mastTitle}</h1>
               <p>{t.testimonials.mastBlurb}</p>
             </div>
-            {t.testimonials.chip ? (
-              <div className="chip">{t.testimonials.chip}</div>
-            ) : null}
+            <div className="chip">{t.testimonials.chip}</div>
           </header>
 
           <main className="testimonials">
@@ -949,13 +907,6 @@ export default function App() {
                 <h2>{t.testimonials.heroTitle}</h2>
                 <p>{t.testimonials.heroText}</p>
               </div>
-              <button
-                className="hero-cta"
-                type="button"
-                onClick={() => navigate("/")}
-              >
-                {t.testimonials.heroCta}
-              </button>
             </section>
 
             <section className="testimonial-grid">
@@ -965,7 +916,7 @@ export default function App() {
                     <img src={testimonial.image} alt={testimonial.name} />
                   </div>
                   <div className="testimonial-body">
-                    <p className="testimonial-quote">{quoteOpen}{testimonial.quote}{quoteClose}</p>
+                    <p className="testimonial-quote">“{testimonial.quote}”</p>
                     <div className="testimonial-meta">
                       <div className="testimonial-name">{testimonial.name}</div>
                     </div>
@@ -979,22 +930,27 @@ export default function App() {
             <div className="footer-inner">
               <div className="footer-brand">
                 <div className="footer-title">{t.footerTestimonials.brandTitle}</div>
+                <p>{t.footerTestimonials.brandText}</p>
               </div>
               <div className="footer-col">
                 <h3>{t.footerTestimonials.navTitle}</h3>
                 <a
                   className="footer-nav-link"
                   href="/"
-                  target="_blank"
-                  rel="noreferrer"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigate("/");
+                  }}
                 >
                   {t.footerTestimonials.navBack}
                 </a>
                 <a
-                  className="footer-nav-link footer-nav-link-text"
+                  className="footer-nav-link"
                   href="/testimonials"
-                  target="_blank"
-                  rel="noreferrer"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigate("/testimonials");
+                  }}
                 >
                   {t.footerTestimonials.navTestimonials}
                 </a>
@@ -1005,18 +961,16 @@ export default function App() {
                   <div key={`testimonials-log-${index}`} className="footer-text">{item}</div>
                 ))}
               </div>
+              <div className="footer-col">
+                <h3>{t.footerTestimonials.statusTitle}</h3>
+                {t.footerTestimonials.status.map((item, index) => (
+                  <div key={`testimonials-status-${index}`} className="footer-text">{item}</div>
+                ))}
+              </div>
             </div>
             <div className="footer-bottom">
-              {t.footerTestimonials.bottom.map((item) => {
-                const [symbol, ...rest] = item.split(" ");
-                const label = rest.join(" ");
-                return (
-                  <span key={`testimonials-bottom-${item}`} className="footer-bottom-item">
-                    <span className="footer-symbol">{symbol}</span>
-                    <span className="footer-label">{label}</span>
-                  </span>
-                );
-              })}
+              <span>{t.footerTestimonials.bottom[0]}</span>
+              <span>{t.footerTestimonials.bottom[1]}</span>
               <button
                 className="theme-toggle"
                 type="button"
