@@ -28,7 +28,7 @@ const content = {
       title: "Quizkalender",
       blurb: "Allmennkunnskap og musikkquiz i Oslo fra Osloquiz.",
       chipPrefix:
-        "Kun Osloquiz. For å finne andre quiz i Oslo, bruk",
+        "Kun quiz fra Osloquiz. For å finne andre quizer i Oslo, bruk",
       chipLinkLabel: "Norges Quizforbunds oversikt",
       chipSuffix: ".",
       chipLink:
@@ -36,7 +36,7 @@ const content = {
     },
     calendar: {
       title: "Januar — mars 2025",
-      meta: "Seksukersvisning. Bla én uke om gangen.",
+      meta: "",
       navPrev: "Forrige",
       navNext: "Neste",
       navWeek: (start, end) => `Uke ${start} — ${end}`,
@@ -440,6 +440,13 @@ export default function App() {
     ...calendarEvents.map((event) => event.week + 1)
   );
   const maxStart = Math.max(0, maxWeek - 6);
+  const earliestEventWeek = useMemo(() => {
+    if (!calendarEvents.length) {
+      return null;
+    }
+    return Math.min(...calendarEvents.map((event) => event.week));
+  }, [calendarEvents]);
+  const showPrev = earliestEventWeek !== null && startWeek > earliestEventWeek;
 
   const visibleWeeks = Array.from({ length: 6 }, (_, index) => startWeek + index);
   const calendarTitle = useMemo(() => {
@@ -527,18 +534,19 @@ export default function App() {
                 <div className="calendar-empty">No events published yet.</div>
               ) : null}
 
-              <div className="calendar-nav">
-                <button
-                  className="nav-button"
-                  type="button"
-                  onClick={() => {
-                    setUserNavigated(true);
-                    setStartWeek((prev) => Math.max(0, prev - 1));
-                  }}
-                  disabled={startWeek <= 0}
-                >
-                  {t.calendar.navPrev}
-                </button>
+              <div className={`calendar-nav${showPrev ? "" : " calendar-nav-no-prev"}`}>
+                {showPrev ? (
+                  <button
+                    className="nav-button"
+                    type="button"
+                    onClick={() => {
+                      setUserNavigated(true);
+                      setStartWeek((prev) => Math.max(0, prev - 1));
+                    }}
+                  >
+                    {t.calendar.navPrev}
+                  </button>
+                ) : null}
                 <div className="nav-title">
                   {(() => {
                     const startRange = new Date(START_DATE);

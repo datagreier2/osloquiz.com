@@ -141,6 +141,10 @@ body {
   align-items: center;
 }
 
+.calendar-nav-no-prev {
+  grid-template-columns: 1fr auto;
+}
+
 .nav-button {
   font-family: "Space Mono", monospace;
   padding: 8px 12px;
@@ -197,7 +201,7 @@ body {
 
 .week-events {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr;
   gap: 10px;
   align-content: start;
 }

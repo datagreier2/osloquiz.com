@@ -111,4 +111,16 @@ export const event = defineType({
       }
     },
   },
+  orderings: [
+    {
+      title: 'Date (asc)',
+      name: 'dateAsc',
+      by: [{field: 'date', direction: 'asc'}],
+    },
+    {
+      title: 'Date (desc)',
+      name: 'dateDesc',
+      by: [{field: 'date', direction: 'desc'}],
+    },
+  ],
 })
