@@ -26,7 +26,7 @@ const content = {
     weekLabels: ["man", "tir", "ons", "tor", "fre", "lør", "søn"],
     mast: {
       title: "Osloquiz",
-      blurb: "Allmennkunnskap og musikkquiz i Oslo fra Osloquiz.",
+      blurb: "Quiz i Oslo. Allmenn, musikk, ja, rett og slett vanlig quiz!",
       chipPrefix:
         "Kun quiz fra Osloquiz. For å finne andre quizer i Oslo, bruk",
       chipLinkLabel: "Norges Quizforbunds oversikt",
@@ -39,6 +39,7 @@ const content = {
       meta: "",
       navPrev: "Forrige",
       navNext: "Neste",
+      chip: "Kalender",
       navWeek: (start, end) => `Uke ${start} — ${end}`,
       weekLabel: (weekNumber) => `U${weekNumber}`,
     },
@@ -117,7 +118,7 @@ const content = {
     weekLabels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     mast: {
       title: "Osloquiz",
-      blurb: "General knowledge and music quizes in Oslo by Osloquiz.",
+      blurb: "Quiz in Oslo. General knowledge, music, just plain quiz.",
       chipPrefix:
         "For Osloquiz only. To find other quizzes in Oslo, use the",
       chipLinkLabel: "Norges Quizforbund directory",
@@ -130,6 +131,7 @@ const content = {
       meta: "",
       navPrev: "Previous",
       navNext: "Next",
+      chip: "Calendar",
       navWeek: (start, end) => `Week ${start} — ${end}`,
       weekLabel: (weekNumber) => `W${weekNumber}`,
     },
@@ -587,7 +589,7 @@ export default function App() {
           <header className="mast">
             <div className="mast-copy">
               <h1>{t.mast.title}</h1>
-              <p>{t.mast.blurb}</p>
+              <h2>{t.mast.blurb}</h2>
             </div>
             <a
               className="mast-instagram"
@@ -623,7 +625,7 @@ export default function App() {
           <main className="grid">
             <section className="calendar">
               <div className="calendar-head">
-                <div className="calendar-chip">Calendar</div>
+                <div className="calendar-chip">{t.calendar.chip}</div>
                 <div className="title">{calendarTitle}</div>
                 <div className="meta">{t.calendar.meta}</div>
               </div>
@@ -910,10 +912,27 @@ export default function App() {
               {t.footerHome.bottom.map((item) => {
                 const [symbol, ...rest] = item.split(" ");
                 const label = rest.join(" ");
+                const href =
+                  label === "Aron Lindegård"
+                    ? "https://lindegard.xyz"
+                    : label === "Ron & Lindegård"
+                    ? "https://lindegard.no/work"
+                    : "";
                 return (
                   <span key={`home-bottom-${item}`} className="footer-bottom-item">
                     <span className="footer-symbol">{symbol}</span>
-                    <span className="footer-label">{label}</span>
+                    {href ? (
+                      <a
+                        className="footer-label"
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {label}
+                      </a>
+                    ) : (
+                      <span className="footer-label">{label}</span>
+                    )}
                   </span>
                 );
               })}
@@ -1010,10 +1029,27 @@ export default function App() {
               {t.footerTestimonials.bottom.map((item) => {
                 const [symbol, ...rest] = item.split(" ");
                 const label = rest.join(" ");
+                const href =
+                  label === "Aron Lindegård"
+                    ? "https://lindegard.xyz"
+                    : label === "Ron & Lindegård"
+                    ? "https://lindegard.no/work"
+                    : "";
                 return (
                   <span key={`testimonials-bottom-${item}`} className="footer-bottom-item">
                     <span className="footer-symbol">{symbol}</span>
-                    <span className="footer-label">{label}</span>
+                    {href ? (
+                      <a
+                        className="footer-label"
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {label}
+                      </a>
+                    ) : (
+                      <span className="footer-label">{label}</span>
+                    )}
                   </span>
                 );
               })}
