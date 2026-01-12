@@ -64,7 +64,7 @@ export const event = defineType({
             {
               name: 'url',
               title: 'URL',
-              type: 'url',
+              type: 'string',
               description: 'Use https://, http://, or just an email address.',
               validation: (rule) =>
                 rule.custom((value) => {
