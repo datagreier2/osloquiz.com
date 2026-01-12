@@ -55,13 +55,13 @@ const content = {
     seo: {
       title: "Mer informasjon",
       summary:
-        "Tradisjonell pubquiz med mindre sport, litt mer musikk og ingen gimmicker eller overraskelser. Moro for alle aldre og interesser!",
+        "Quiz i Oslo. Allmenn, musikk, ja, rett og slett vanlig quiz!",
       toggleCollapsed: "bla bla bla",
       toggleExpanded: "Skjul",
       blocks: [
-        "Osloquiz arrangerer «klassiske» pubquizer i Oslo. Det vil si ingen unike gimmicker, stand-up, sing-along eller annen «moro». De fleste kvelder er generell kunnskap med en litt ekstra musikk (som oftest 8-10 låter), skrevet slik at ulike lag og kunnskapsnivåer kan spille sammen uten at det føles urettferdig eller for smalt.",
-        "Quizene ledes av Aron Lindegård, som har gjennomført hundrevis av quizkvelder og skrevet tusenvis av spørsmål. Formatet er tradisjonelt og rett fram, med vekt på solide spørsmål fremfor gimmicker. Musikkrundene bruker gjenkjennelige låter fra ulike tiår, så hele bordet kan være med selv om smaken varierer.",
-        "En quizkveld er en enkel midtukerutine: møt venner, ta deg en pils eller brus, og gjør noe sosialt som også aktiverer de små grå. Osloquiz har faste quizkvelder på flere steder rundt om i byen og tilbyr også private og bedriftsarrangementer. Målet er enkelt — en hyggelig, inkluderende quiz som fungerer like godt for faste lag som for førstegangsbesøkende.",
+        "Osloquiz lager klassiske pubquizer i Oslo — allmennkunnskap og musikk, uten gimmicker. Spørsmålene er skrevet for blandede lag og ulike nivåer, så det er gøy uansett erfaring.",
+        "Formatet er tradisjonelt: penn og papir, tydelig vertskap, og solide runder. Musikkrundene bruker låter fra flere tiår, så hele bordet kan bidra.",
+        "Osloquiz har faste quizkvelder på flere steder i byen, pluss private og bedriftsarrangementer. En midtukekveld med venner, en øl, og en quiz som faktisk flyter.",
       ],
     },
     testimonials: {
@@ -147,13 +147,13 @@ const content = {
     seo: {
       title: "More context",
       summary:
-        "Traditional pubquiz with less sport, a bit more music, and no gimmicks or surprises. Fun for all ages and interests!",
+        "Quiz in Oslo. General knowledge, music, just plain quiz.",
       toggleCollapsed: "bla bla bla",
       toggleExpanded: "Collapse",
       blocks: [
-        "Osloquiz runs classic pub quizzes in Oslo, focused on clear questions, good variety, and a relaxed social atmosphere. Most nights are general trivia with a music round, written so different teams and knowledge levels can play together without it feeling unfair or overly niche.",
-        "The quizzes are hosted by Aron Lindegård, who has run hundreds of quiz nights and written thousands of questions. The format is traditional and straightforward, with the emphasis on solid questions rather than gimmicks. Music rounds use recognisable tracks from different eras, so the whole table can take part, even if tastes vary.",
-        "A quiz night is an easy midweek habit: meet friends, grab a drink, and do something social with a bit of structure. osloquiz runs regular quiz nights at venues around the city and also does private and company events. The goal is simple — a fun, welcoming quiz that works just as well for regular teams as for first-timers.",
+        "Osloquiz runs classic pub quizzes in Oslo — general knowledge and music, no gimmicks. Questions are written for mixed teams and skill levels, so everyone can join in.",
+        "The format is traditional: pen and paper, clear hosting, and well-paced rounds. Music rounds pull from multiple eras so the whole table can play.",
+        "Osloquiz hosts regular quiz nights across the city, plus private and company events. A midweek catch‑up with friends, a drink, and a quiz that flows.",
       ],
     },
     testimonials: {
