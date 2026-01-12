@@ -47,6 +47,7 @@ const content = {
       about: [loremA, loremB],
       venuesTitle: "Steder",
       venues: [loremC, loremD],
+      calendarTitle: "Månedskalender",
     },
     seo: {
       title: "Mer informasjon",
@@ -138,6 +139,7 @@ const content = {
       about: [loremA, loremB],
       venuesTitle: "Venues",
       venues: [loremC, loremD],
+      calendarTitle: "Month view",
     },
     seo: {
       title: "More context",
@@ -370,7 +372,8 @@ export default function App() {
           time,
           detail,
           venue->{title, url, mapUrl, bookTableUrl, ticketsUrl},
-          actions[]{label, url}
+          actions[]{label, url},
+          status
         }`
       )
       .then((data) => {
@@ -429,6 +432,7 @@ export default function App() {
           venueBookUrl: event.venue?.bookTableUrl || "",
           venueTicketsUrl: event.venue?.ticketsUrl || "",
           actions: Array.isArray(event.actions) ? event.actions : [],
+          status: event.status || "scheduled",
         };
       })
       .filter(Boolean);
@@ -466,6 +470,40 @@ export default function App() {
     }
     return `${startMonth} — ${endMonth} ${startYear}`;
   }, [startWeek, t.calendar.title, t.locale]);
+
+  const monthGroups = useMemo(() => {
+    if (!visibleWeeks.length) {
+      return [];
+    }
+    const eventKeys = new Set(
+      calendarEvents.map((event) => `${event.week}-${event.day}`)
+    );
+    const days = visibleWeeks.flatMap((weekIndex) =>
+      Array.from({ length: 7 }, (_, dayIndex) => {
+        const date = new Date(START_DATE);
+        date.setDate(START_DATE.getDate() + weekIndex * 7 + dayIndex);
+        return {
+          date,
+          dayIndex,
+          isEvent: eventKeys.has(`${weekIndex}-${dayIndex}`),
+        };
+      })
+    );
+    const groups = [];
+    let current = null;
+    days.forEach((day) => {
+      const monthLabel = day.date.toLocaleDateString(t.locale, {
+        month: "long",
+        year: "numeric",
+      });
+      if (!current || current.label !== monthLabel) {
+        current = { label: monthLabel, days: [] };
+        groups.push(current);
+      }
+      current.days.push(day);
+    });
+    return groups;
+  }, [calendarEvents, t.locale, visibleWeeks]);
 
   useEffect(() => {
     setStartWeek((prev) => Math.min(prev, maxStart));
@@ -601,16 +639,21 @@ export default function App() {
                           const today = new Date();
                           today.setHours(0, 0, 0, 0);
                           const isPast = date < today;
+                          const isPrivate = event.status === "private";
+                          const isCanceled = event.status === "canceled";
+                          const isTentative = event.status === "tentative";
                           return (
                             <article
                               key={event.id}
-                              className={`event${isPast ? " event-past" : ""}`}
+                              className={`event${isPast ? " event-past" : ""}${isPrivate ? " event-private" : ""}${isCanceled ? " event-canceled" : ""}${isTentative ? " event-tentative" : ""}`}
                             >
                               <div className="event-meta">
                                 {t.weekLabels[event.day]} · {dateLabel}
                               </div>
                               <div className="event-time">{event.time}</div>
-                              <h3 className="event-title">{event.title}</h3>
+                              <h3 className="event-title">
+                                {isCanceled ? <s>{event.title}</s> : event.title}
+                              </h3>
                               {event.detail ? (
                                 <p className="event-detail">{event.detail}</p>
                               ) : null}
@@ -702,9 +745,35 @@ export default function App() {
                 <p>{t.aside.about[1]}</p>
               </div>
               <div className="panel">
-                <h2>{t.aside.venuesTitle}</h2>
-                <p>{t.aside.venues[0]}</p>
-                <p>{t.aside.venues[1]}</p>
+                <h2>{t.aside.calendarTitle}</h2>
+                <div className="mini-calendar">
+                  <div className="mini-weekdays">
+                    {t.weekLabels.map((label) => (
+                      <span key={`weekday-${label}`}>{label}</span>
+                    ))}
+                  </div>
+                  {monthGroups.map((group) => {
+                    const firstDayIndex = group.days[0]?.dayIndex ?? 0;
+                    return (
+                      <div key={group.label} className="mini-month">
+                        <div className="mini-month-title">{group.label}</div>
+                        <div className="mini-days">
+                          {Array.from({ length: firstDayIndex }, (_, index) => (
+                            <span key={`${group.label}-empty-${index}`} className="mini-day empty" />
+                          ))}
+                          {group.days.map((day, index) => (
+                            <span
+                              key={`${group.label}-${index}`}
+                              className={`mini-day${day.isEvent ? " is-event" : ""}`}
+                            >
+                              {day.date.getDate()}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </section>
           </main>

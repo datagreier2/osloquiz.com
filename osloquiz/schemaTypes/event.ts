@@ -94,6 +94,21 @@ export const event = defineType({
         },
       ],
     }),
+    defineField({
+      name: 'status',
+      title: 'Status',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Scheduled', value: 'scheduled'},
+          {title: 'Private event', value: 'private'},
+          {title: 'Canceled', value: 'canceled'},
+          {title: 'Tentative', value: 'tentative'},
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'scheduled',
+    }),
   ],
   preview: {
     select: {
