@@ -622,7 +622,7 @@ export default function App() {
                                     ) : (
                                       <span
                                         key={`${event.id}-action-${actionIndex}`}
-                                        className="event-cta"
+                                        className="event-cta event-cta-muted"
                                       >
                                         {label}
                                       </span>

@@ -298,6 +298,11 @@ body {
   color: var(--accent);
 }
 
+.event-cta-muted {
+  background: #ffffff;
+  color: var(--ink);
+}
+
 .event-actions {
   display: flex;
   flex-wrap: wrap;
