@@ -365,6 +365,7 @@ export default function App() {
         `*[_type == "event"]|order(date asc){
           _id,
           title,
+          titleEn,
           date,
           time,
           detail,
@@ -416,7 +417,10 @@ export default function App() {
           id: event._id,
           week: weekIndex,
           day: dayIndex,
-          title: event.title || "Untitled",
+          title:
+            locale === "en"
+              ? event.titleEn || event.title || "Untitled"
+              : event.title || event.titleEn || "Untitled",
           time: event.time || "--:--",
           detail: event.detail || "",
           venueName: event.venue?.title || "",
@@ -426,7 +430,7 @@ export default function App() {
         };
       })
       .filter(Boolean);
-  }, [sanityEvents]);
+  }, [locale, sanityEvents]);
 
   const maxWeek = Math.max(
     12,

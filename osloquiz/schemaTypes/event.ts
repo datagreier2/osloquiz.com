@@ -7,9 +7,14 @@ export const event = defineType({
   fields: [
     defineField({
       name: 'title',
-      title: 'Title',
+      title: 'Title (No)',
       type: 'string',
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'titleEn',
+      title: 'Title (En)',
+      type: 'string',
     }),
     defineField({
       name: 'date',
