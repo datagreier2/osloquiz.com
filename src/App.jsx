@@ -362,8 +362,7 @@ export default function App() {
           time,
           detail,
           venue->{title, url, mapUrl},
-          ctaLabel,
-          ctaUrl
+          actions[]{label, url}
         }`
       )
       .then((data) => {
@@ -416,8 +415,7 @@ export default function App() {
           venueName: event.venue?.title || "",
           venueUrl: event.venue?.url || "",
           venueMapUrl: event.venue?.mapUrl || "",
-          ctaLabel: event.ctaLabel || "",
-          ctaUrl: event.ctaUrl || "",
+          actions: Array.isArray(event.actions) ? event.actions : [],
         };
       })
       .filter(Boolean);
@@ -604,19 +602,33 @@ export default function App() {
                                   ) : null}
                                 </div>
                               ) : null}
-                              {event.ctaLabel ? (
-                                event.ctaUrl ? (
-                                  <a
-                                    className="event-cta"
-                                    href={event.ctaUrl}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                  >
-                                    {event.ctaLabel}
-                                  </a>
-                                ) : (
-                                  <span className="event-cta">{event.ctaLabel}</span>
-                                )
+                              {event.actions.length ? (
+                                <div className="event-actions">
+                                  {event.actions.map((action, actionIndex) => {
+                                    const label = action?.label || "";
+                                    if (!label) {
+                                      return null;
+                                    }
+                                    return action?.url ? (
+                                      <a
+                                        key={`${event.id}-action-${actionIndex}`}
+                                        className="event-cta"
+                                        href={action.url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                      >
+                                        {label}
+                                      </a>
+                                    ) : (
+                                      <span
+                                        key={`${event.id}-action-${actionIndex}`}
+                                        className="event-cta"
+                                      >
+                                        {label}
+                                      </span>
+                                    );
+                                  })}
+                                </div>
                               ) : null}
                             </article>
                           );

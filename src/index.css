@@ -298,6 +298,12 @@ body {
   color: var(--accent);
 }
 
+.event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
 .aside {
   display: flex;
   flex-direction: column;

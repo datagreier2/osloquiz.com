@@ -40,25 +40,39 @@ export const event = defineType({
       to: [{type: 'venue'}],
     }),
     defineField({
-      name: 'ctaLabel',
-      title: 'Action',
-      type: 'string',
-      options: {
-        list: [
-          {title: 'Book table', value: 'Book table'},
-          {title: 'Get tickets', value: 'Get tickets'},
-          {title: 'Drop-in', value: 'Drop-in'},
-        ],
-      },
-    }),
-    defineField({
-      name: 'ctaUrl',
-      title: 'Action URL',
-      type: 'url',
-      validation: (rule) =>
-        rule.uri({
-          scheme: ['http', 'https'],
-        }),
+      name: 'actions',
+      title: 'Actions',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'eventAction',
+          fields: [
+            {
+              name: 'label',
+              title: 'Label',
+              type: 'string',
+              options: {
+                list: [
+                  {title: 'Book table', value: 'Book table'},
+                  {title: 'Get tickets', value: 'Get tickets'},
+                  {title: 'Drop-in', value: 'Drop-in'},
+                ],
+              },
+              validation: (rule) => rule.required(),
+            },
+            {
+              name: 'url',
+              title: 'URL',
+              type: 'url',
+              validation: (rule) =>
+                rule.uri({
+                  scheme: ['http', 'https'],
+                }),
+            },
+          ],
+        },
+      ],
     }),
   ],
   preview: {
