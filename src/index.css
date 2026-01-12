@@ -308,6 +308,11 @@ body {
   color: var(--ink);
 }
 
+.event-cta-muted:hover {
+  background: #ffffff;
+  color: var(--ink);
+}
+
 .event-actions {
   display: flex;
   flex-wrap: wrap;
