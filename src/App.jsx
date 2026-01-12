@@ -693,7 +693,7 @@ export default function App() {
                                     const inheritedUrl =
                                       label === "Book table"
                                         ? event.venueBookUrl
-                                        : label === "Buy tickets"
+                                        : label === "Get tickets"
                                         ? event.venueTicketsUrl
                                         : "";
                                     const url = action?.url || inheritedUrl || "";
