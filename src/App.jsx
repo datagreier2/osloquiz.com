@@ -3,6 +3,13 @@ import { sanityClient } from "./sanityClient.js";
 
 const START_DATE = new Date(2025, 0, 6);
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
+const getIsoWeekNumber = (date) => {
+  const target = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const day = target.getUTCDay() || 7;
+  target.setUTCDate(target.getUTCDate() + 4 - day);
+  const yearStart = new Date(Date.UTC(target.getUTCFullYear(), 0, 1));
+  return Math.ceil(((target - yearStart) / MS_PER_DAY + 1) / 7);
+};
 
 const loremA =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
@@ -33,7 +40,7 @@ const content = {
       navPrev: "Forrige",
       navNext: "Neste",
       navWeek: (start, end) => `Uke ${start} — ${end}`,
-      weekLabel: (index) => `U${index + 1}`,
+      weekLabel: (weekNumber) => `U${weekNumber}`,
     },
     aside: {
       aboutTitle: "osloquiz",
@@ -124,7 +131,7 @@ const content = {
       navPrev: "Previous",
       navNext: "Next",
       navWeek: (start, end) => `Week ${start} — ${end}`,
-      weekLabel: (index) => `W${index + 1}`,
+      weekLabel: (weekNumber) => `W${weekNumber}`,
     },
     aside: {
       aboutTitle: "osloquiz",
@@ -527,7 +534,15 @@ export default function App() {
                   {t.calendar.navPrev}
                 </button>
                 <div className="nav-title">
-                  {t.calendar.navWeek(startWeek + 1, startWeek + 6)}
+                  {(() => {
+                    const startRange = new Date(START_DATE);
+                    startRange.setDate(START_DATE.getDate() + startWeek * 7);
+                    const endRange = new Date(startRange);
+                    endRange.setDate(startRange.getDate() + 35);
+                    const startWeekNumber = getIsoWeekNumber(startRange);
+                    const endWeekNumber = getIsoWeekNumber(endRange);
+                    return t.calendar.navWeek(startWeekNumber, endWeekNumber);
+                  })()}
                 </div>
                 <button
                   className="nav-button"
@@ -550,7 +565,16 @@ export default function App() {
 
                   return (
                     <div key={`week-${weekIndex}`} className="week-row">
-                      <div className="week-label">{t.calendar.weekLabel(weekIndex)}</div>
+                      {(() => {
+                        const weekDate = new Date(START_DATE);
+                        weekDate.setDate(START_DATE.getDate() + weekIndex * 7);
+                        const isoWeek = getIsoWeekNumber(weekDate);
+                        return (
+                          <div className="week-label">
+                            {t.calendar.weekLabel(isoWeek)}
+                          </div>
+                        );
+                      })()}
                       <div className="week-events">
                         {weekEvents.map((event) => {
                           const dayOffset = weekIndex * 7 + event.day;
