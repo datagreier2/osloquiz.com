@@ -340,9 +340,30 @@ export default function App() {
     }
     return getLocaleFromNavigator();
   });
-  const getViewFromPath = () =>
-    window.location.pathname === "/testimonials" ? "testimonials" : "home";
-  const [view, setView] = useState(getViewFromPath);
+  const getRedirectPath = () => {
+    if (typeof window === "undefined") {
+      return null;
+    }
+    const params = new URLSearchParams(window.location.search);
+    const redirect = params.get("redirect");
+    if (!redirect || !redirect.startsWith("/")) {
+      return null;
+    }
+    return redirect;
+  };
+  const getPathname = (path) => {
+    const cleaned = (path || "").split(/[?#]/)[0] || "/";
+    if (cleaned.length > 1 && cleaned.endsWith("/")) {
+      return cleaned.slice(0, -1);
+    }
+    return cleaned;
+  };
+  const getViewFromPath = (path = window.location.pathname) =>
+    getPathname(path) === "/testimonials" ? "testimonials" : "home";
+  const [view, setView] = useState(() => {
+    const redirectPath = getRedirectPath();
+    return getViewFromPath(redirectPath || window.location.pathname);
+  });
   const [seoExpanded, setSeoExpanded] = useState(false);
   const [sanityEvents, setSanityEvents] = useState([]);
   const [weekInitialized, setWeekInitialized] = useState(false);
@@ -377,6 +398,13 @@ export default function App() {
     const handlePop = () => setView(getViewFromPath());
     window.addEventListener("popstate", handlePop);
     return () => window.removeEventListener("popstate", handlePop);
+  }, []);
+
+  useEffect(() => {
+    const redirectPath = getRedirectPath();
+    if (redirectPath && redirectPath !== window.location.pathname) {
+      window.history.replaceState({}, "", redirectPath);
+    }
   }, []);
 
   useEffect(() => {
@@ -438,7 +466,7 @@ export default function App() {
     if (window.location.pathname !== path) {
       window.history.pushState({}, "", path);
     }
-    setView(path === "/testimonials" ? "testimonials" : "home");
+    setView(getViewFromPath(path));
   };
 
   const calendarEvents = useMemo(() => {
