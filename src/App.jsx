@@ -48,6 +48,7 @@ const content = {
       about: [
         "Tradisjonell pubquiz med mindre sport, litt mer musikk og ingen gimmicker eller overraskelser. Moro for alle aldre og interesser!",
       ],
+      contactLabel: "Kontakt",
       venuesTitle: "Steder",
       venues: [loremC, loremD],
       calendarTitle: "Månedskalender",
@@ -140,6 +141,7 @@ const content = {
       about: [
         "Traditional pubquiz with less sport, a bit more music, and no gimmicks or surprises. Fun for all ages and interests! English usually available upon request.",
       ],
+      contactLabel: "Contact",
       venuesTitle: "Venues",
       venues: [loremC, loremD],
       calendarTitle: "Month view",
@@ -340,6 +342,7 @@ export default function App() {
     }
     return getLocaleFromNavigator();
   });
+  const [contactOpen, setContactOpen] = useState(false);
   const getRedirectPath = () => {
     if (typeof window === "undefined") {
       return null;
@@ -835,6 +838,32 @@ export default function App() {
                 <h2>{t.aside.aboutTitle}</h2>
                 <p>{t.aside.about[0]}</p>
                 <p>{t.aside.about[1]}</p>
+                <div className={`aside-contact${contactOpen ? " is-open" : ""}`}>
+                  <button
+                    className="aside-contact-button"
+                    type="button"
+                    onClick={() => setContactOpen((prev) => !prev)}
+                    aria-expanded={contactOpen}
+                  >
+                    {t.aside.contactLabel}
+                  </button>
+                  <div className="aside-contact-content" aria-hidden={!contactOpen}>
+                    <a
+                      className="aside-contact-email"
+                      href="mailto:post@osloquiz.no"
+                    >
+                      post@osloquiz.no
+                    </a>
+                    <a
+                      className="aside-contact-signal"
+                      href="https://signal.me/#eu/A__60djLZMiH7Z56PZknA-0P5sUGix18UstctbQpeZorVc9y5AZFDZP-RYg2egeC"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Signal (aron.41)
+                    </a>
+                  </div>
+                </div>
               </div>
               <div className="panel">
                 <h2>{t.aside.calendarTitle}</h2>

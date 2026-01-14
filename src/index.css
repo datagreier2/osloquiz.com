@@ -443,6 +443,78 @@ body {
   font-size: 16px;
 }
 
+.aside-contact {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.aside-contact-button {
+  font-family: "League Spartan", sans-serif;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border: 2px solid var(--ink);
+  background: var(--accent);
+  color: var(--surface);
+  letter-spacing: 1px;
+  width: fit-content;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.aside-contact-button:hover {
+  background: var(--surface);
+  color: var(--accent);
+}
+
+.aside-contact-content {
+  display: grid;
+  gap: 8px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.aside-contact.is-open .aside-contact-content {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.aside-contact-email {
+  font-size: 16px;
+  font-family: "League Spartan", sans-serif;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 2px solid var(--ink);
+  width: fit-content;
+}
+
+.aside-contact-email:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.aside-contact-signal {
+  font-size: 14px;
+  font-family: "League Spartan", sans-serif;
+  text-transform: uppercase;
+  color: var(--surface);
+  background: var(--ink);
+  padding: 6px 10px;
+  text-decoration: none;
+  width: fit-content;
+  border: 2px solid var(--surface);
+  box-shadow: 3px 3px 0 var(--ink);
+  letter-spacing: 1px;
+}
+
+.aside-contact-signal:hover {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
 .mini-calendar {
   display: grid;
   gap: 12px;
