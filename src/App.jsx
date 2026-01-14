@@ -343,6 +343,7 @@ export default function App() {
     return getLocaleFromNavigator();
   });
   const [contactOpen, setContactOpen] = useState(false);
+  const [headerContactOpen, setHeaderContactOpen] = useState(false);
   const getRedirectPath = () => {
     if (typeof window === "undefined") {
       return null;
@@ -622,14 +623,50 @@ export default function App() {
               <h1>{t.mast.title}</h1>
               <h2>{t.mast.blurb}</h2>
             </div>
-            <a
-              className="mast-instagram"
-              href="https://www.instagram.com/osloquiz/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Instagram
-            </a>
+            <div className="mast-links">
+              <a
+                className="mast-link-button mast-instagram"
+                href="https://www.instagram.com/osloquiz/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Instagram
+              </a>
+              <div className={`mast-contact${headerContactOpen ? " is-open" : ""}`}>
+                <button
+                  className="mast-link-button mast-contact-button"
+                  type="button"
+                  onClick={() => setHeaderContactOpen((prev) => !prev)}
+                  aria-expanded={headerContactOpen}
+                >
+                  {t.aside.contactLabel}
+                </button>
+                <div className="mast-contact-content" aria-hidden={!headerContactOpen}>
+                  <a
+                    className="aside-contact-email"
+                    href="mailto:post@osloquiz.no"
+                  >
+                    post@osloquiz.no
+                  </a>
+                  <a
+                    className="aside-contact-signal"
+                    href="https://signal.me/#eu/A__60djLZMiH7Z56PZknA-0P5sUGix18UstctbQpeZorVc9y5AZFDZP-RYg2egeC"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Signal (aron.41)
+                  </a>
+                  <a
+                    className="aside-contact-signal"
+                    href="https://wa.me/qr/PXAKZHG52PMVL1"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
             <div className="language-picker">
               <select
                 id="locale-picker"
@@ -861,6 +898,14 @@ export default function App() {
                       rel="noreferrer"
                     >
                       Signal (aron.41)
+                    </a>
+                    <a
+                      className="aside-contact-signal"
+                      href="https://wa.me/qr/PXAKZHG52PMVL1"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      WhatsApp
                     </a>
                   </div>
                 </div>

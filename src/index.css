@@ -141,22 +141,65 @@ body {
   width: auto;
 }
 
-.mast-instagram {
-  position: absolute;
-  top: 12px;
-  right: 20px;
+.mast-links {
+  display: inline-flex;
+  gap: 12px;
+  align-items: baseline;
+  justify-self: end;
+}
+
+.mast-link-button {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
   font-family: "League Spartan", sans-serif;
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 1px;
   color: var(--ink);
   text-decoration: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   border-bottom: 2px solid var(--ink);
 }
 
-.mast-instagram:hover {
+.mast-link-button:hover {
   color: var(--accent);
   border-bottom-color: var(--accent);
+}
+
+.mast-contact {
+  position: relative;
+}
+
+.mast-contact-button {
+  position: relative;
+}
+
+.mast-contact-content {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  min-width: 220px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.mast-contact.is-open .mast-contact-content {
+  max-height: 240px;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .grid {
@@ -445,8 +488,8 @@ body {
 
 .aside-contact {
   display: grid;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 16px;
+  margin-top: 16px;
 }
 
 .aside-contact-button {
@@ -469,7 +512,7 @@ body {
 
 .aside-contact-content {
   display: grid;
-  gap: 8px;
+  gap: 12px;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -974,6 +1017,13 @@ body {
   .mast {
     grid-template-columns: auto 1fr auto auto;
     grid-template-rows: auto auto;
+  }
+
+  .mast-links {
+    grid-column: 4;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
   }
 
   .stamp {
