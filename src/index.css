@@ -45,7 +45,7 @@
   --surface-soft: #000000;
   --event-private-stripe: rgba(255, 122, 51, 0.25);
   --event-private-base: rgba(0, 0, 0, 0.95);
-  --shadow-color: #000000;
+  --shadow-color: var(--accent);
 }
 
 * {
@@ -387,6 +387,7 @@ body {
 .event-detail {
   margin: 30px 0;
   font-size: 16px;
+  text-transform: none;
 }
 
 .event-venue {
