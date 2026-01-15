@@ -786,9 +786,6 @@ export default function App() {
                               <h3 className="event-title">
                                 {isCanceled ? <s>{event.title}</s> : event.title}
                               </h3>
-                              {event.detail ? (
-                                <p className="event-detail">{event.detail}</p>
-                              ) : null}
                               {event.venueName ? (
                                 <div className="event-links">
                                   {event.venueUrl ? (
@@ -805,6 +802,9 @@ export default function App() {
                                   )}
                                 </div>
                               ) : null}
+                              {event.detail ? (
+                                <p className="event-detail">{event.detail}</p>
+                              ) : null}
                               {event.actions.length || event.venueMapUrl ? (
                                 <div className="event-actions">
                                   {event.actions.map((action, actionIndex) => {
@@ -812,6 +812,14 @@ export default function App() {
                                     if (!label) {
                                       return null;
                                     }
+                                    const displayLabel =
+                                      locale === "no" && label === "Book table"
+                                        ? "Reserver bord"
+                                        : locale === "no" && label === "Get tickets"
+                                        ? "Billetter"
+                                        : locale === "en" && label === "Get tickets"
+                                        ? "Tickets"
+                                        : label;
                                     const isDropIn = /drop\\s*in/i.test(label);
                                     const inheritedUrl =
                                       label === "Book table"
@@ -835,7 +843,7 @@ export default function App() {
                                             target="_blank"
                                             rel="noreferrer"
                                           >
-                                            {label}
+                                            {displayLabel}
                                           </a>
                                         );
                                       })()
@@ -844,7 +852,7 @@ export default function App() {
                                         key={`${event.id}-action-${actionIndex}`}
                                         className={`event-cta${isDropIn ? " event-cta-dropin" : " event-cta-muted"}`}
                                       >
-                                        {label}
+                                        {displayLabel}
                                       </span>
                                     );
                                   })}
@@ -855,7 +863,7 @@ export default function App() {
                                       target="_blank"
                                       rel="noreferrer"
                                     >
-                                      Map
+                                      {locale === "no" ? "Kart" : "Map"}
                                     </a>
                                   ) : null}
                                 </div>
